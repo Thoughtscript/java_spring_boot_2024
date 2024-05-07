@@ -1,0 +1,19 @@
+server:
+  ssl:
+    key-store-type: PKCS12
+    key-store: src/main/resources/bootexample.p12
+    key-store-password: af3DF*34afefwefehu
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://postgres:5432/postgres
+    username: testuser
+    password: testpassword

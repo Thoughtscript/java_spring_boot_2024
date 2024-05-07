@@ -1,0 +1,32 @@
+services:
+  postgres:
+    build:
+      context: ./postgresql
+      dockerfile: dockerfile
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
+    networks:
+      - testnet
+    volumes:
+      - db-data:/var/lib/postgresql/data:delegated
+
+  springboot:
+    build:
+      context: ./springboot
+      dockerfile: dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
+    networks:
+      - testnet
+    restart: unless-stopped
+
+volumes:
+  db-data:
+
+networks:
+  testnet:
+    driver: bridge
