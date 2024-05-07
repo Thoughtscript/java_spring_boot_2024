@@ -48,7 +48,7 @@ keytool -genkey \
 
 1. [springboot/src/main/resources/application.yml](springboot/src/main/resources/application.yml)
 2. [springboot/src/main/java/io/thoughtscript/bootexample/config/SecurityConfiguration.java](springboot/src/main/java/io/thoughtscript/bootexample/config/SecurityConfiguration.java)
-    * `user` and `password` are the default Spring Security credentials. Use them to log in and call the API.
+    * `user` and `password` are the default Spring Security credentials. Use them to log in and call the API as needed.
 3. [postgresql/init_sql.sql](postgresql/init_sql.sql)
 
 ## API
