@@ -53,6 +53,12 @@ keytool -genkey \
 
 ## API
 
+Endpoint testing is supplied through `bash`:
+
+```bash
+bash test_curl.sh
+```
+
 ### Get All Examples
 
 https://localhost:8080/api/example/all
