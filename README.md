@@ -1,6 +1,6 @@
 # Spring Boot 2024
 
-[![](https://img.shields.io/badge/Spring%20Boot-3.0.2-green.svg)](https://spring.io/projects/spring-boot)
+[![](https://img.shields.io/badge/Spring%20Boot-3.2.5-green.svg)](https://spring.io/projects/spring-boot)
 [![](https://img.shields.io/badge/Gradle-7.5.1-darkslategray.svg)](https://gradle.org/)
 [![](https://img.shields.io/badge/Maven-3.8.6-white.svg)](https://maven.apache.org/download.cgi)
 [![](https://img.shields.io/badge/Docker-blue.svg)](https://www.docker.com/) 
