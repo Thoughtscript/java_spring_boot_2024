@@ -12,6 +12,9 @@
 
 ```bash
 docker-compose up
+
+# If using Docker Compose Engine V2:
+docker compose up
 ```
 
 ### From Source
