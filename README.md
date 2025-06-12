@@ -686,3 +686,4 @@ https://localhost:8080/api/relations/many/one/all
 9. https://docs.spring.io/spring-boot/reference/io/caching.html#io.caching.provider.simple
 10. https://medium.com/@avi.singh.iit01/optimizing-performance-with-spring-data-jpa-85583362cf3a
 11. https://thorben-janssen.com/hibernate-performance-tuning/
+12. https://www.danvega.dev/blog/jdk-24-virtual-threads-without-pinning
