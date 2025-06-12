@@ -9,6 +9,4 @@ import lombok.experimental.UtilityClass;
  */
 
 @UtilityClass
-public class Constants {
-
-}
+public class Constants { }

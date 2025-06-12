@@ -9,7 +9,7 @@ server:
     # Tomcat thread pool
     threads:
       min: 5
-      max: 14
+      max: 100
 
 spring:
   cache:
@@ -38,5 +38,8 @@ spring:
   task:
     execution:
       pool:
-        core-size: 5
-        max-size: 14
+        core-size: 5 # Doesn't have an effect if virtual threads are enabled.
+        queue-capacity: 100 # Doesn't have an effect if virtual threads are enabled.
+        max-size: 10 # Doesn't have an effect if virtual threads are enabled.
+    simple:
+      concurrency-limit: 500 # Default unbounded
