@@ -1,8 +1,8 @@
 # Spring Boot 2024
 
-[![](https://img.shields.io/badge/Spring%20Boot-3.2.5-green.svg)](https://spring.io/projects/spring-boot)
+[![](https://img.shields.io/badge/Spring%20Boot-3.5.0-green.svg)](https://spring.io/projects/spring-boot)
 [![](https://img.shields.io/badge/Gradle-7.5.1-darkslategray.svg)](https://gradle.org/)
-[![](https://img.shields.io/badge/Maven-3.8.6-white.svg)](https://maven.apache.org/download.cgi)
+[![](https://img.shields.io/badge/Maven-3.9.9-white.svg)](https://maven.apache.org/download.cgi)
 [![](https://img.shields.io/badge/Docker-blue.svg)](https://www.docker.com/) 
 [![](https://img.shields.io/badge/Postgres-16.2-lightblue.svg)](https://hub.docker.com/_/postgres)
 
@@ -53,6 +53,14 @@ keytool -genkey \
 2. [springboot/src/main/java/io/thoughtscript/bootexample/config/SecurityConfiguration.java](springboot/src/main/java/io/thoughtscript/bootexample/config/SecurityConfiguration.java)
     * `user` and `password` are the default Spring Security credentials. Use them to log in and call the API as needed.
 3. [postgresql/init_sql.sql](postgresql/init_sql.sql)
+
+### Comments
+
+1. Uses Hikari [Connection Pooling](/springboot/src/main/resources/application.yml#L35) and postgres [Max Connections](docker-compose.yml#L6)
+2. Uses `@EnableCaching` through [Spring Cache](springboot/src/main/java/io/thoughtscript/bootexample/config/CacheConfiguration.java#L7)
+3. Uses Virtual Threads through [application.yml](springboot/src/main/resources/application.yml#L39)
+4. Uses Hibernate `@Cacheable` within the Entity Framework [domain](springboot/src/main/java/io/thoughtscript/bootexample/domain/ManyToManyRelation.java#L20)
+5. Uses `@Transactional(readOnly = true)` on [Services](springboot/src/main/java/io/thoughtscript/bootexample/services/ManyToManyRelationService.java#L14)
 
 ## API
 
