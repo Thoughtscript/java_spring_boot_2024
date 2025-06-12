@@ -4,16 +4,39 @@ server:
     key-store: src/main/resources/bootexample.p12
     key-store-password: af3DF*34afefwefehu
 
+  tomcat:
+    max-connections: 100
+    # Tomcat thread pool
+    threads:
+      min: 5
+      max: 14
+
 spring:
+  cache:
+    cache-names: "manytomany,examples,manytoone,onetomany,onetoone"
+
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+    # show-sql: false
+    # properties:
+      # hibernate:
+        # format_sql: true
+        # dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: jdbc:postgresql://postgres:5432/postgres
     username: testuser
     password: testpassword
+
+    hikari:
+      minimum-pool-size: 10
+      maximum-pool-size: 100
+
+  threads:
+    virtual:
+      enabled: true
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 14

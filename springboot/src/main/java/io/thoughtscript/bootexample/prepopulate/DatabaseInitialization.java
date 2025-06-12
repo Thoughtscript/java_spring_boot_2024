@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Slf4j
 @Component
@@ -89,7 +89,7 @@ public class DatabaseInitialization {
 
         aa.setManyonerelationfk(aaaa.getId());
         aa.setOneToOneRelation(a);
-        List<OneToManyRelation> aaOneToManyRelations = new ArrayList<>();
+        Set<OneToManyRelation> aaOneToManyRelations = new HashSet<>();
         aaOneToManyRelations.add(aaa);
         aaOneToManyRelations.add(bbb);
         aa.setOneToManyRelations(aaOneToManyRelations);
@@ -97,10 +97,10 @@ public class DatabaseInitialization {
         aaaa.setExample(aa);
         aaa.setExamplefk(aa.getId());
         bbb.setExamplefk(aa.getId());
-        List<ManyToManyRelation> aaManyToManyRelations = new ArrayList<>();
+        Set<ManyToManyRelation> aaManyToManyRelations = new HashSet<>();
         aaManyToManyRelations.add(aaaaa);
         aaManyToManyRelations.add(bbbbb);
-        List<Example> aaaaaExamples = new ArrayList<>();
+        Set<Example> aaaaaExamples = new HashSet<>();
         aaaaaExamples.add(aa);
         aaaaaExamples.add(bb);
         aa.setManyToManyRelations(aaManyToManyRelations);
@@ -108,7 +108,7 @@ public class DatabaseInitialization {
 
         bb.setManyonerelationfk(bbbb.getId());
         bb.setOneToOneRelation(b);
-        List<OneToManyRelation> bbOneToManyRelations = new ArrayList<>();
+        Set<OneToManyRelation> bbOneToManyRelations = new HashSet<>();
         bbOneToManyRelations.add(ccc);
         bbOneToManyRelations.add(ddd);
         bb.setOneToManyRelations(aaOneToManyRelations);
@@ -119,7 +119,7 @@ public class DatabaseInitialization {
 
         cc.setManyonerelationfk(cccc.getId());
         cc.setOneToOneRelation(c);
-        List<OneToManyRelation> ccOneToManyRelations = new ArrayList<>();
+        Set<OneToManyRelation> ccOneToManyRelations = new HashSet<>();
         ccOneToManyRelations.add(eee);
         ccOneToManyRelations.add(fff);
         cc.setOneToManyRelations(aaOneToManyRelations);
@@ -130,7 +130,7 @@ public class DatabaseInitialization {
 
         dd.setManyonerelationfk(dddd.getId());
         dd.setOneToOneRelation(d);
-        List<OneToManyRelation> ddOneToManyRelations = new ArrayList<>();
+        Set<OneToManyRelation> ddOneToManyRelations = new HashSet<>();
         ddOneToManyRelations.add(ggg);
         ddOneToManyRelations.add(hhh);
         dd.setOneToManyRelations(aaOneToManyRelations);

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 @Entity
 @Getter
@@ -12,6 +13,8 @@ import lombok.Setter;
 @Table(name = "onerelation")
 @AllArgsConstructor
 @NoArgsConstructor
+@BatchSize(size = 10)
+@Cacheable // Hibernate Cache
 public class OneToOneRelation {
 
     @Id
@@ -22,16 +25,11 @@ public class OneToOneRelation {
     @Column(name = "name")
     private String name;
 
-    /*
-    @PrimaryKeyJoinColumn
-     Use EAGER here since OneToOne
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "examplefk")
     private Example example;
 
     public OneToOneRelation(Long id, String name) {
         this.id = id;
         this.name = name;
     }
-    */
 }

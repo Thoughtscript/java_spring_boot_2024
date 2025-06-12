@@ -1,14 +1,13 @@
 package io.thoughtscript.bootexample.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,6 +15,8 @@ import java.util.List;
 @Table(name = "example")
 @AllArgsConstructor
 @NoArgsConstructor
+@BatchSize(size = 10)
+@Cacheable // Hibernate Cache
 public class Example {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,7 +34,7 @@ public class Example {
 
     // Use LAZY here to avoid infinite JSON
     @OneToMany(fetch = FetchType.LAZY, mappedBy="examplefk")
-    private List<OneToManyRelation> oneToManyRelations;
+    private Set<OneToManyRelation> oneToManyRelations; // Set is better
 
     @Column(name = "manyonerelationfk")
     private Long manyonerelationfk;
@@ -41,7 +42,7 @@ public class Example {
     // Use LAZY here - best practice
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name= "E_M", joinColumns = @JoinColumn(name = "eId"),inverseJoinColumns = @JoinColumn(name = "mmId"))
-    private List<ManyToManyRelation> manyToManyRelations;
+    private Set<ManyToManyRelation> manyToManyRelations; // Set is better
 
     public Example(Long id, String name) {
         this.id = id;

@@ -1,4 +1,6 @@
-package io.thoughtscript.bootexample;
+package io.thoughtscript.bootexample.config;
+
+import lombok.experimental.UtilityClass;
 
 /**
  * Non-Property constants.
@@ -6,6 +8,7 @@ package io.thoughtscript.bootexample;
  * @Author - Adam In Tae Gerard - https://www.linkedin.com/in/adamintaegerard/
  */
 
+@UtilityClass
 public class Constants {
 
 }

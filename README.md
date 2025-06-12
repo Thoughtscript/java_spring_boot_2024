@@ -682,3 +682,7 @@ https://localhost:8080/api/relations/many/one/all
 5. https://stackoverflow.com/questions/56424524/getting-infinite-json-response-when-using-many-to-one-mapping-in-spring
 6. https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion
 7. https://www.baeldung.com/hibernate-one-to-many
+8. https://www.baeldung.com/spring-boot-hikari
+9. https://docs.spring.io/spring-boot/reference/io/caching.html#io.caching.provider.simple
+10. https://medium.com/@avi.singh.iit01/optimizing-performance-with-spring-data-jpa-85583362cf3a
+11. https://thorben-janssen.com/hibernate-performance-tuning/

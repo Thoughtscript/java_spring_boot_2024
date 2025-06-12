@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 @Entity
 @Getter
@@ -12,6 +13,8 @@ import lombok.Setter;
 @Table(name = "manyonerelation")
 @AllArgsConstructor
 @NoArgsConstructor
+@BatchSize(size = 10)
+@Cacheable // Hibernate Cache
 public class ManyToOneRelation {
 
     @Id
@@ -22,7 +25,7 @@ public class ManyToOneRelation {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="examplefk")
     private Example example;
 

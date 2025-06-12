@@ -1,15 +1,14 @@
 package io.thoughtscript.bootexample.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -17,6 +16,8 @@ import java.util.List;
 @Table(name = "manymanyrelation")
 @AllArgsConstructor
 @NoArgsConstructor
+@BatchSize(size = 10)
+@Cacheable // Hibernate Cache
 public class ManyToManyRelation {
 
     @Id
@@ -31,7 +32,7 @@ public class ManyToManyRelation {
     // Use @JsonIgnore to avoid infinite JSON recursion - here
     @JsonIgnore
     @ManyToMany(mappedBy="manyToManyRelations", fetch = FetchType.LAZY)
-    private List<Example> examples;
+    private Set<Example> examples; // Set is better
 
     public ManyToManyRelation(Long id, String name) {
         this.id = id;
